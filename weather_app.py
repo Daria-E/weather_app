@@ -14,7 +14,13 @@ Here are the steps you can take to create this project:
 
 import requests
 import json
-import tkinter
+from tkinter import *
 import PIL
 import datetime
 
+def getWeather():
+    forecast = requests.get('https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,relativehumidity_2m,precipitation_probability')
+    forecast_json = json.loads(forecast.text)
+    print(forecast_json)
+
+getWeather()
